@@ -8,50 +8,55 @@
 
 #include<iostream>
 using namespace std;
-class Date
+class Complex                                                        //定义Complex类
 {
-public:
-    Date(int,int,int);
-    Date(int,int);
-    Date(int);
-    Date();
-    void display();
+public:  Complex();                                                  //默认构造函数
+    friend Complex operator+(Complex &,Complex &);                   //重载运算符“+”
+    void input();                                                    //输入数据函数
+    void display();                                                  //输出数据函数
 private:
-    int month;
-    int day;
-    int year;
+    int com[2][3];
 };
-
-Date::Date(int m,int d,int y):month(m),day(d),year(y)
-{ }
-
-Date::Date(int m,int d):month(m),day(d)
-{year=2005;}
-
-Date::Date(int m):month(m)
+Complex::Complex()                                                   //定义构造函数
 {
-    day=1;
-    year=2005;
+    for(int i=0;i<2;i++)
+        for(int j=0;j<3;j++)
+            com[i][j]=0;
 }
-Date::Date()
+Complex operator+(Complex &a,Complex &b)                             //定义重载运算符“+”函数
 {
-    month=1;
-    day=1;
-    year=2005;
+    Complex c;
+    for(int i=0;i<2;i++)
+        for(int j=0;j<3;j++)
+        {c.com[i][j]=a.com[i][j]+b.com[i][j];}
+    return c;
 }
-
-void Date::display()
-{cout<<month<<"/"<<day<<"/"<<year<<endl;}
-
-int main()
+void Complex::input()                                                //定义输入数据函数
 {
-    Date d1(10,13,2005);
-    Date d2(12,30);
-    Date d3(10);
-    Date d4;
-    d1.display();
-    d2.display();
-    d3.display();
-    d4.display();
+    cout<<"input value of Complex:"<<endl;
+    for(int i=0;i<2;i++)
+        for(int j=0;j<3;j++)
+            cin>>com[i][j];
+}
+void Complex::display()                                              //定义输出数据函数
+{
+    for (int i=0;i<2;i++)
+    {
+        for(int j=0;j<3;j++)
+        {cout<<com[i][j]<<" ";}
+        cout<<endl;
+    }
+}   int main()
+{
+    Complex a,b,c;
+    a.input();
+    b.input();
+    cout<<endl<<"Complex a:"<<endl;
+    a.display();
+    cout<<endl<<"Complex b:"<<endl;
+    b.display();
+    c=a+b;                                                           //用重载运算符“+”实现两个矩阵相加
+    cout<<endl<<"Complex c = Complex a + Complex b :"<<endl;
+    c.display();
     return 0;
 }
