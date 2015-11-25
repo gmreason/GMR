@@ -8,14 +8,27 @@
 
 #include <iostream>
 using namespace std;
+class Time
+{
+public:
+    void set_time();
+    void show_time();
+private:                    //成员改为公用的
+    int hour;
+    int minute;
+    int sec;
+};
+void Time::set_time()          //在main函数之前定义
+{
+    cin>>hour;
+    cin>>minute;
+    cin>>sec;
+}   void Time::show_time()         //在main函数之前定义
+{cout<<hour<<":"<<minute<<":"<<sec<<endl;}
+
 int main()
 {
-    int a,b,c;
-    a=10;
-    b=23;
-    c=a+b;
-    cout<<"a+b=";
-    cout<<c;
-    cout<<endl;
+    Time t1; t1.set_time();
+    t1.show_time();
     return 0;
 }
