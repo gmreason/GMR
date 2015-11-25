@@ -6,29 +6,52 @@
 //  Copyright © 2015年 gmr. All rights reserved.
 //
 
-#include <iostream>
+#include<iostream>
 using namespace std;
-class Time
+class Date
 {
 public:
-    void set_time();
-    void show_time();
-private:                    //成员改为公用的
-    int hour;
-    int minute;
-    int sec;
+    Date(int,int,int);
+    Date(int,int);
+    Date(int);
+    Date();
+    void display();
+private:
+    int month;
+    int day;
+    int year;
 };
-void Time::set_time()          //在main函数之前定义
+
+Date::Date(int m,int d,int y):month(m),day(d),year(y)
+{ }
+
+Date::Date(int m,int d):month(m),day(d)
+{year=2005;}
+
+Date::Date(int m):month(m)
 {
-    cin>>hour;
-    cin>>minute;
-    cin>>sec;
-}   void Time::show_time()         //在main函数之前定义
-{cout<<hour<<":"<<minute<<":"<<sec<<endl;}
+    day=1;
+    year=2005;
+}
+Date::Date()
+{
+    month=1;
+    day=1;
+    year=2005;
+}
+
+void Date::display()
+{cout<<month<<"/"<<day<<"/"<<year<<endl;}
 
 int main()
 {
-    Time t1; t1.set_time();
-    t1.show_time();
+    Date d1(10,13,2005);
+    Date d2(12,30);
+    Date d3(10);
+    Date d4;
+    d1.display();
+    d2.display();
+    d3.display();
+    d4.display();
     return 0;
 }
