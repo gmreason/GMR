@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>GMR.xcscheme</key>
+		<key>gmr.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>19E1D77A1BF36EDF00823DB9</key>
+		<key>197342281C216F4900D55723</key>
 		<dict>
 			<key>primary</key>
 			<true/>
