@@ -13,6 +13,7 @@ struct student
     int age;
     student *next;
 };
+
 int main(int argc,const char*argv[])
 {
     int i;
